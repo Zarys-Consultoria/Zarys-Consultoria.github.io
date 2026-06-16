@@ -34,7 +34,7 @@ export function Story() {
                 icon: Rocket,
                 year: "Adiante",
                 title: "O sonho",
-                text: "Ser uma consultoria referência na criação de SaaS que não apenas geram resultados, mas que servem às pessoas e deixam um legado de valor para a criação e para os negócios.",
+                text: "Ser uma consultoria referência na criação de soluções que não apenas geram resultados, mas que servem às pessoas e deixam um legado de valor para a criação e para os negócios.",
               },
             ].map((s, i) => (
               <Reveal key={s.title} delay={i * 120}>
