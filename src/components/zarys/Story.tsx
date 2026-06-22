@@ -1,4 +1,3 @@
-// src/components/zarys/Story.tsx
 import { Compass, Rocket, Target } from "lucide-react";
 import { Reveal } from "./Reveal";
 
