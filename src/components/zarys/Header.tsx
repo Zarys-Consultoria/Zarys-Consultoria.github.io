@@ -1,13 +1,15 @@
+"use client";
+
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
-import logoZarys from "../../images/logo-zarys.png";
+import logoZarys from "@/assets/brand/zarys-logo.svg";
 
 const links = [
   { href: "#solucoes", label: "O que fazemos" },
   { href: "#quem-somos", label: "Quem Somos" },
   { href: "#historia", label: "Nossa História" },
   { href: "#ambicoes", label: "Ambições" },
-  { href: "#contato", label: "Contato" },
 ];
 
 export function Header() {
@@ -28,22 +30,16 @@ export function Header() {
       }`}
     >
       <div className="mx-auto max-w-7xl px-6 h-16 flex items-center justify-between">
-        <a href="#top" className="flex items-center gap-2 group" aria-label="Zarys">
-          <img src={logoZarys} alt="Zarys Logo" className="h-9 w-7 object-contain mix-blend-multiply" />
-          <span 
-            className="tracking-tight text-3xl mt-1 text-brand-yellow" 
-            style={{ fontFamily: "'Bodoni XT', serif" }}
-          >
-            ZARYS
-          </span>
+        <a href="#top" className="flex items-center" aria-label="Zarys — início">
+          <Image src={logoZarys} alt="Zarys" priority className="h-7 w-auto" />
         </a>
 
-        <nav className="hidden md:flex items-center gap-1">
+        <nav className="hidden md:flex items-center gap-1" aria-label="Principal">
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="relative px-3 py-2 text-[0.95rem] font-medium tracking-tight text-foreground/80 hover:text-foreground transition-colors group"
+              className="relative px-3 py-2 text-[0.95rem] font-medium tracking-tight text-grafite/80 hover:text-grafite transition-colors group"
             >
               {l.label}
               <span
@@ -57,34 +53,42 @@ export function Header() {
 
         <a
           href="#contato"
-          className="hidden md:inline-flex items-center rounded-full bg-foreground text-background px-4 py-2 text-sm font-medium hover:opacity-90 transition"
+          className="hidden md:inline-flex items-center rounded-full bg-petroleo text-white px-5 py-2 text-sm font-semibold hover:bg-petroleo/90 transition"
         >
           Fale conosco
         </a>
 
         <button
-          className="md:hidden p-2 -mr-2"
+          className="md:hidden p-2 -mr-2 text-grafite"
           onClick={() => setOpen((v) => !v)}
-          aria-label="Abrir menu"
+          aria-label={open ? "Fechar menu" : "Abrir menu"}
+          aria-expanded={open}
         >
           {open ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
       {open && (
-        <div className="md:hidden border-t border-border bg-background/95">
-          <div className="px-6 py-4 flex flex-col gap-3">
+        <div className="md:hidden border-t border-border bg-white/95">
+          <nav className="px-6 py-4 flex flex-col gap-1" aria-label="Principal">
             {links.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="py-2 text-sm text-foreground"
+                className="py-2.5 text-base font-medium text-grafite"
               >
                 {l.label}
               </a>
             ))}
-          </div>
+            <a
+              href="#contato"
+              onClick={() => setOpen(false)}
+              className="mt-3 inline-flex justify-center rounded-full bg-petroleo text-white px-5 py-3 text-sm font-semibold"
+            >
+              Fale conosco
+            </a>
+          </nav>
         </div>
       )}
     </header>

@@ -8,27 +8,26 @@ Zarys is a newly established consultancy firm (2026) dedicated to bringing world
 
 This project is built to be our foundation for growth, featuring:
 - **Clean Architecture:** Component-based structure using React.
-- **Modern Stack:** Built with Vite, Tailwind CSS, and TanStack Router.
+- **Modern Stack:** Built with Next.js (static export) and Tailwind CSS.
+- **SEO-ready:** Every page is pre-rendered to HTML, so search engines and link previews (WhatsApp, LinkedIn, Instagram) read the full content and metadata.
 - **Responsive Design:** Mobile-first approach for healthcare professionals and corporate stakeholders.
 
 ## 🛠️ Technical Stack
 
-- **Framework:** React.js
-- **Build Tool:** Vite
-- **Routing:** TanStack Router
+- **Framework:** Next.js (App Router, `output: "export"`)
+- **UI:** React
 - **Styling:** Tailwind CSS
-- **UI Components:** Shadcn UI
+- **Fonts:** Manrope (headings) and Inter (body), self-hosted via `next/font`
+- **Icons:** Lucide
 - **Language:** TypeScript
 
 ## 📂 Project Structure
 
 ```text
 src/
-├── components/     # Reusable UI and Zarys-specific components
-├── hooks/          # Custom React hooks
-├── lib/            # Utilities and configurations
-├── routes/         # Application routing structure
-└── styles.css      # Global styles and design system
+├── app/            # Next.js App Router: layout, page, global styles, icons and share image
+├── assets/brand/   # Official Zarys logo and symbol (SVG)
+└── components/     # Zarys landing page sections
 
 ```
 
@@ -63,7 +62,15 @@ npm run dev
 ```
 
 
-4. Open [http://localhost:8080](https://www.google.com/search?q=http://localhost:8080) to view the application in your browser.
+4. Open [http://localhost:3000](http://localhost:3000) to view the application in your browser.
+
+### Build
+
+```bash
+npm run build
+```
+
+The static site is generated in `dist/`, which is deployed to GitHub Pages.
 
 ## 💼 Business Vision
 

@@ -11,8 +11,11 @@ lerna-debug.log*
 node_modules/
 
 # Produção / Builds
-dist/
-dist-ssr/
+# A pasta dist/ é versionada de propósito (deploy manual)
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
 
 # Environment Variables (Segurança)
 .env

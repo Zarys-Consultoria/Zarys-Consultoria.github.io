@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useRef, type ReactNode } from "react";
 
 interface RevealProps {
@@ -21,7 +23,7 @@ export function Reveal({ children, delay = 0, className = "" }: RevealProps) {
           }
         });
       },
-      { threshold: 0.15 }
+      { threshold: 0.15 },
     );
     io.observe(el);
     return () => io.disconnect();
