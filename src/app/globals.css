@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+/* Paleta oficial da identidade visual Zarys */
+@theme {
+  --color-amarelo: #f6be00;
+  --color-ciano: #05c3de;
+  --color-petroleo: #023b43;
+  --color-grafite: #171d24;
+  --color-offwhite: #f4f5f2;
+  --color-prata: #a8b0ba;
+
+  --color-background: #ffffff;
+  --color-foreground: var(--color-grafite);
+  --color-muted: color-mix(in oklab, var(--color-grafite) 70%, white);
+  --color-border: color-mix(in oklab, var(--color-prata) 45%, white);
+}
+
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-manrope), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --gradient-divider: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--color-ciano) 25%,
+    var(--color-amarelo) 75%,
+    transparent 100%
+  );
+  --shadow-elegant: 0 12px 40px -16px color-mix(in oklab, var(--color-petroleo) 30%, transparent);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 4rem;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+  }
+}
+
+@utility gradient-divider {
+  height: 2px;
+  width: 100%;
+  background: var(--gradient-divider);
+  border-radius: 999px;
+}
+
+@utility glass-header {
+  background-color: color-mix(in oklab, white 80%, transparent);
+  backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+}
+
+@utility shadow-elegant {
+  box-shadow: var(--shadow-elegant);
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  opacity: 0;
+}
+
+.reveal.in-view {
+  animation: fade-up 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal,
+  .reveal.in-view {
+    opacity: 1;
+    animation: none;
+  }
+}
