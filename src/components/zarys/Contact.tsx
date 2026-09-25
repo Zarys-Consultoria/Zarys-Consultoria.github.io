@@ -19,7 +19,7 @@ const channels = [
     Icon: WhatsAppIcon,
     label: "WhatsApp",
     title: "Fale Conosco",
-    text: "Resposta rápida e atendimento direto com nossa equipe.",
+    text: "Resposta rápida e atendimento direto com nossa equipe comercial.",
     detail: "Iniciar conversa",
     href: WHATSAPP_URL,
     external: true,
