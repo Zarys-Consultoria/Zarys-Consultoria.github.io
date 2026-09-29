@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+
+Host: https://zarysconsultoria.com.br
+Sitemap: https://zarysconsultoria.com.br/sitemap.xml

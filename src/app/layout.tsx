@@ -18,23 +18,46 @@ const manrope = Manrope({
   display: "swap",
 });
 
-const title = "Zarys | Estruturando seu crescimento";
+const SITE_URL = "https://zarysconsultoria.com.br";
+const title = "Zarys Consultoria | Estruturando seu crescimento";
 const description =
   "Zarys é uma holding e consultoria de tecnologia de excelência, com foco em HealthTech, IA nativa e segurança rigorosa de dados. Lançamento em 2026.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://zarysconsultoria.com.br"),
+  metadataBase: new URL(SITE_URL),
   title,
   description,
+  applicationName: "Zarys Consultoria",
   authors: [{ name: "Zarys" }],
+  keywords: [
+    "Zarys",
+    "Zarys Consultoria",
+    "consultoria de tecnologia",
+    "consultoria em TI",
+    "HealthTech",
+    "SaaS",
+    "inteligência artificial",
+    "transformação digital",
+  ],
   alternates: {
     canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
   openGraph: {
     type: "website",
     locale: "pt_BR",
     url: "/",
-    siteName: "Zarys",
+    siteName: "Zarys Consultoria",
     title,
     description:
       "Consultoria e soluções de altíssimo nível em tecnologia e saúde. Lançamento em 2026.",
@@ -46,6 +69,21 @@ export const metadata: Metadata = {
   },
 };
 
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Zarys Consultoria",
+  alternateName: "Zarys",
+  url: SITE_URL,
+  logo: `${SITE_URL}/opengraph-image.png`,
+  description,
+  slogan: "Estruturando seu crescimento",
+  sameAs: [
+    "https://www.instagram.com/zarys.consultoria/",
+    "https://www.linkedin.com/company/zarys-consultoria/",
+  ],
+};
+
 export const viewport: Viewport = {
   themeColor: "#ffffff",
 };
@@ -53,6 +91,12 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="pt-BR" className={`${inter.variable} ${manrope.variable}`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+      </head>
       <body>
         <noscript>
           <iframe
