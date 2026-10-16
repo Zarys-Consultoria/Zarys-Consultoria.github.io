@@ -38,3 +38,9 @@ coverage/
 *.njsproj
 *.sln
 *.sw?
+
+# Claude — memoria/contexto (nunca commitar)
+CLAUDE.md
+MEMORY.md
+memory/
+.claude/

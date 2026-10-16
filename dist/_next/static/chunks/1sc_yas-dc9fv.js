@@ -1,0 +1,1 @@
+(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,98201,o=>{o.q("/_next/static/media/zarys-logo.16ixq7op_rj74.svg")}]);
