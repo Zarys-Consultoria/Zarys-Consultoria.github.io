@@ -46,11 +46,6 @@ const navegacao = [
   { href: "#ambicoes", label: "Ambições" },
 ];
 
-const contato = [
-  { href: WHATSAPP_URL, label: "WhatsApp", external: true },
-  { href: `mailto:${EMAIL}`, label: "E-mail", external: false },
-];
-
 export function Footer() {
   return (
     <footer className="bg-grafite pt-16 pb-10">
@@ -60,7 +55,10 @@ export function Footer() {
             <a href="#top" aria-label="Zarys — voltar ao início" className="inline-block">
               <Image src={logoZarys} alt="Zarys" className="h-14 w-auto" />
             </a>
-            <div className="mt-8 flex items-center gap-5">
+            <p className="mt-6 text-xs font-bold uppercase tracking-[0.15em] text-white/60">
+              Acompanhe o Zarys
+            </p>
+            <div className="mt-3 flex items-center gap-4">
               {redesSociais.map(({ href, label, Icon }) => (
                 <a
                   key={label}
@@ -68,9 +66,9 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="text-white hover:text-amarelo transition-colors"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white hover:text-amarelo hover:border-amarelo transition-colors"
                 >
-                  <Icon />
+                  <Icon size={18} />
                 </a>
               ))}
             </div>
@@ -95,26 +93,41 @@ export function Footer() {
           <nav aria-label="Contato">
             <h3 className="text-sm font-bold uppercase tracking-[0.15em] text-white">Contato</h3>
             <ul className="mt-5 space-y-3">
-              {contato.map((l) => (
-                <li key={l.href}>
-                  <a
-                    href={l.href}
-                    target={l.external ? "_blank" : undefined}
-                    rel={l.external ? "noopener noreferrer" : undefined}
-                    className="text-sm text-white/60 hover:text-amarelo transition-colors"
-                  >
-                    {l.label}
-                  </a>
-                </li>
-              ))}
+              <li>
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-white/60 hover:text-amarelo transition-colors"
+                >
+                  WhatsApp
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`mailto:${EMAIL}`}
+                  className="text-sm text-white/60 hover:text-amarelo transition-colors"
+                >
+                  E-mail
+                </a>
+              </li>
             </ul>
           </nav>
         </div>
 
-        <div className="mt-14 border-t border-white/10 pt-8">
-          <p className="text-xs text-white/50">
-            © {new Date().getFullYear()} Zarys. Estruturando seu crescimento.
-          </p>
+        <div className="mt-14 border-t border-white/10 pt-8 flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+          <div className="text-xs text-white/50 space-y-1">
+            <p>© {new Date().getFullYear()} Zarys Consultoria Ltda · CNPJ 64.817.120/0001-69</p>
+            <p>R. Pais Leme, 215, conj. 1713, Pinheiros, São Paulo/SP, CEP 05424-150</p>
+          </div>
+          <div className="flex items-center gap-6">
+            <a href="#" className="text-xs text-white/50 hover:text-amarelo transition-colors whitespace-nowrap">
+              Política de Privacidade
+            </a>
+            <a href="#" className="text-xs text-white/50 hover:text-amarelo transition-colors whitespace-nowrap">
+              Termos de Uso
+            </a>
+          </div>
         </div>
       </div>
     </footer>
